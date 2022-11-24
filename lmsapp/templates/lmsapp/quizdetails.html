@@ -1,0 +1,46 @@
+<!-- @format -->
+{% extends 'general.html' %} {% block content %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Quiz Detials | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/roomdetails2.css' %}" />
+	</head>
+	<body>
+		<main>
+			<div>
+                <div id="flash">
+                    {% if messages %} {% for message in messages %}
+                    <div class="alert alert-{{ message.tags}} m-0" role="alert">
+                    <strong style = "color : red;">{{ message }}</strong>
+                    </div>
+                    {% endfor %} {% endif %}
+                </div>
+                <div class='quizintrosection'>
+                    <div>
+                        <h1>Tutor {{ quiz.user }} Asked:</h1>
+                    </div>
+                    <div>
+                        <a href={% url 'Quizsection' %}><button>See All Quiz</button></a>
+                    </div>
+                </div>
+				<h3>{{ quiz.quiz }}</h3>
+				<small>Note(s): {{ quiz.notes }}</small><br />
+				<small>Tip: {{ quiz.prize }}</small><br />
+				<small>Created {{ quiz.created_at | timesince }} ago </small>
+			</div>			
+			<div class="responsesout">
+				<form method = 'POST'>
+                    {% csrf_token %}
+                    <input type= 'text' name = 'response' placeholder='Kindly Enter Your Answer Her'/>
+                    <button  type="submit" name="submit">Submit Response</button>
+                </form>
+			</div>
+		</main>
+	</body>
+</html>
+
+{% endblock content %}

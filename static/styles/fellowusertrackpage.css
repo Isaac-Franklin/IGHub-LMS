@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: roboto, tahoma;
+}
+
+body {
+    background-color: white;
+}
+
+main {
+    /* margin: 20px auto; */
+    /* margin-top: 20px; */
+    width: 80%;
+    margin-left: 20%;
+    text-align: left;
+}
+
+.tableinner1 {
+    padding-top: 80px;
+}
+
+.tablesectioninner {
+    margin-top: 5%;
+    width: 90%;
+
+}
+
+
+
+.searchtrack {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 87%;
+}
+
+
+.searchtrack form input {
+    width: 200px;
+    padding: 10px;
+    font-size: 1.2rem;
+    height: 40px;
+    border-radius: 10px;
+}
+
+
+tr {
+    border-bottom: 4px solid black;
+    margin-top: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+th {
+    padding: 5px;
+}
+
+td {
+    padding: 20px 60px;
+
+}
+
+td a p {
+    text-decoration: none;
+    color: blue;
+}
+
+td a {
+    text-decoration: none;
+}
+
+td:hover {
+    transform: scale(1.1);
+}
+
+main img,
+.img {
+    width: 50px;
+    height: 50px;
+}
+
+table p {
+    font-size: 1.1rem;
+}
+
+table {
+    background-color: white;
+    box-shadow: 0px 0px 10px #888888;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.usernamesec {
+    display: flex;
+    align-items: center;
+}
+
+.usernamesec img {
+    width: 30px;
+    height: 30px;
+    margin-right: 4px;
+}
+
+main h1 {
+    margin: 20px;
+}
+
+@media only screen and (max-width: 950px) {
+    main {
+        margin: 0px auto;
+        border-collapse: collapse;
+        width: 90%;
+        overflow: scroll;
+        margin-left: 10%;
+        text-align: left;
+        /* margin-top: 100px; */
+    }
+
+    .tablesectioninner {
+        margin-top: 5%;
+        width: 90%;
+    }
+
+    /* main {
+        margin: -20px auto;
+        width: 80%;
+        margin-left: 20%;
+        text-align: left;
+    }
+
+    .tablesectioninner {
+        margin-top: 5%;
+        width: 90%;
+    } */
+
+    table {
+        overflow: scroll;
+    }
+}

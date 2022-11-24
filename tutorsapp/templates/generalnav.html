@@ -1,0 +1,74 @@
+{% load static %}
+{% block content %}
+    <div class="nav">
+        <ul>
+            <div class="logo">
+                <img src="{% static 'images/tutordashboard/IG hub Logo.png' %}" alt="" srcset="">
+            </div>
+            <div class="notified">
+                <i class="fa-solid fa-envelope"></i>
+                <i class="fa-regular fa-bell"></i>
+                <i class="fa-regular fa-circle-user"></i>
+            </div>
+            <div class="navcontrol">
+                <img src="{% static 'images/tutordashboard/opennav.png' %}">
+            </div>
+            <div class="navcontro2">
+                <img src="{% static 'images/tutordashboard/closenav.png' %}">
+            </div>
+        </ul>
+    </div>
+
+
+   <div class="instructor">
+            <div class="instruct-top">
+                <div>
+                    <i class="fa-regular mtn fa-circle-user fa-2x"></i>
+                </div>
+                <div class="instopdashboard">
+                    <h3>Instructor</h3>
+                    <p>Dashboard</p>
+                </div>
+            </div>
+            <div class="instruct-bottom ">
+                <div class="">
+                    <div class="sidemenu">
+                        <a href="{% url 'Dashboard' %}"> <div class="dd">
+                            <img src="{% static 'images/tutordashboard/dashboard.png' %}" alt="" srcset="">
+                            <p>Dashboard</p>
+                        </div></a>
+                        <a href="{% url 'FellowTrack' %}"> <div class="dd">
+                            <img src="{% static 'images/tutordashboard/Icon.png' %}" alt="" srcset="">
+                            <p>Students</p>
+                        </div></a>
+                        {% comment %} < href=""> <div class="dd">
+                            <img src="{% static 'images/tutordashboard/Icon1.png' %}" alt="" srcset="">
+                            <p>Courses</p></a>
+                        </div> {% endcomment %}
+                        <a href="{% url 'AllAssignments' %}"> <div class="dd">
+                            <img src="{% static 'images/tutordashboard/assignments.png' %}" alt="" srcset="">
+                            <p>Assignments</p>
+                        </div></a>
+                        <a href="{% url 'TutorQuestion' %}"> <div class="dd">
+                            <img src="{% static 'images/tutordashboard/livesession.png' %}" alt="" srcset="">
+                            <p>Group Chats</p>
+                        </div></a>
+                        <a href="{% url 'TutorTutorials' %}"> <div class="dd">
+                            <img src="{% static 'images/tutordashboard/plays.png' %}" alt="" srcset="">
+                            <p>Training Videos</p>
+                        </div></a>
+                        {% comment %} <a href=""> <div class="dd">
+                            <img src="{% static 'images/tutordashboard/reports.png' %}" alt="" srcset="">
+                            <p>Report</p>
+                        </div></a> {% endcomment %}
+                        <a href="{% url 'logout' %}"><div class="logout">
+                            <p><img src="{% static 'images/tutordashboard/Icon.png' %}" alt="" srcset=""></p>
+                            <p>Log Out</p>
+                        </div></a>
+                    </div>
+                    
+                </div>
+            </div>
+    </div>
+    <script src="{% static 'js/tutorgeneralpage.js' %}"></script>
+    {% endblock content %}

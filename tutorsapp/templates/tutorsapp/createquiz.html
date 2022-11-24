@@ -1,0 +1,29 @@
+<!-- @format -->
+{% extends 'generalsection.html' %} {% block content %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Create A Quiz | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/tutorcreatequiz.css' %}" />
+	</head>
+	<body>
+		<main>
+            <div class="mainsection">
+                <h1>Create Quiz</h1>
+                <small>[Kinldy Fill The Form Below To Create A Quiz]</small>
+                <form action="" method="POST" >
+                    {% csrf_token %}
+                    <input name="quiz" type="text" placeholder="Enter A Quiz Here" /><br/>
+                    <input name="notes" type="text" placeholder="Enter Notes Here [If Any]" /><br/>
+                    <input name="prize" type="text" placeholder="Enter Prize/Score For Winner Here [If Any]" /><br/>
+                    {% comment %} <input name="expiredate" type="date" placeholder="When Is The End Date?" /><br/> {% endcomment %}
+                    <button type="submit">Create Quiz</button>
+                </form>              
+            </div>
+        </main>
+    </body>
+</html>
+{% endblock content %}

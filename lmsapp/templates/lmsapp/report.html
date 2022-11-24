@@ -1,0 +1,36 @@
+<!-- @format -->
+{% extends 'general.html' %} <br />
+{% load embed_video_tags %} {% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Report | LMS Dashboard</title>
+		<link rel="stylesheet" href="{% static 'styles/report.css' %}" />
+	</head>
+	<body>
+        <main>
+            <h2>Hi {{ user.username }}</h2>
+            <small>Kindly Fill The Short Form Below To Make Your Report.</small><br/><br/>
+            <div id="flash">
+				{% if messages %} {% for message in messages %}
+				<div class="alert alert-{{ message.tags}} m-0" role="alert">
+				  <strong style = "color : red;">{{ message }}</strong>
+				</div>
+				{% endfor %} {% endif %}
+			</div>
+            <form method = 'POST'>
+                {% csrf_token %}
+                <label>Who Would You Want To Address This Report To?</label><br/>
+                <input type="text" name="address" placeholder="Address To?"/><br/><br/>
+                <label>Enter Your Report Below:</label><br/>
+                <textarea type="text" name = "reportproper" placeholder="Enter Report In Detail"></textarea><br/>
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+    </body>
+</html>
+
+{%  endblock content %}

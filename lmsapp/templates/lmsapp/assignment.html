@@ -1,0 +1,61 @@
+<!-- @format -->
+{% extends 'general.html' %} <br />
+{% load embed_video_tags %} {% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Assignments | LMS Dashboard</title>
+		<link rel="stylesheet" href="{% static 'styles/assignment.css' %}" />
+	</head>
+	<body>
+		<main>
+			<div class="assignmenttime">
+				<img src = {% static 'images/dashboard/assignment.png' %}>
+				<h4>
+					This Assignment is to be submitted before the end of {{ assin.data_of_submission }}<br />
+				</h4>
+			</div><br/><br/>
+			<div>
+				<h1>Task Title: {{ assin.title }}</h1>
+				<h3>Track: {{ assin.track }}</h3>
+				<h4>Assignment Point: {{ assin.task_point }}</h4>
+				<small>Created {{ assin.created | timesince }} ago </small>
+			</div><br/><br/>
+
+			<div>
+				<h4>Details: {{ assin.short_description }}</h4><br/>
+				<h3>Further Description: {{ assin.detailed_description}}</h3>
+			</div>
+
+			<div><br/><br/>
+				<h4>
+					Resources: {{ assin.resources }}
+				</h4><br/>
+				<h4>Mode of submittion: {{assin.mode_of_submission}}<h4>
+			</div><br/>
+			<form method = 'POST'>
+				{% csrf_token %}
+				<label>Submission: </label><br/>
+				<input type="text" name="submission" placeholder="Your assignment must be submitted as {{assin.mode_of_submission}}">
+				<button>Submit</button>
+				<div id="flash">
+					{% if messages %} {% for message in messages %}
+					<div class="alert alert-{{ message.tags}} m-0" role="alert">
+						<strong style="color: red">{{ message }}</strong>
+					</div>
+					{% endfor %} {% endif %}
+				</div>
+			</form><br/><br/>
+			<a href="{{request.META.HTTP_REFERER}}"><h2>Go Back</h2></a><br/><br/>
+			{% comment %} <div>
+				<h4>This section is meant for tutors ONLY</h4>
+				<a href=""><h3>See all submissions</h3></a>
+			</div> {% endcomment %}
+		</main>
+	</body>
+</html>
+
+{% endblock content %}

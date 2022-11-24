@@ -1,0 +1,55 @@
+<!-- @format -->
+{% extends 'general.html' %} {% block content %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Room Details | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/roomdetails.css' %}" />
+	</head>
+	<body>
+		<main>
+			<div>
+				<h4>{{ quiz.Asker }} Asked:</h4>
+				<h3>{{ quiz.question }}</h3>
+				<small>Tip: {{ quiz.tips }}</small><br />
+				<small>Created {{ quiz.created | timesince }} ago </small>
+			</div>
+			{% comment %} <br /><br /> {% endcomment %}
+			<small><i> There are {{ count_responses }} response(s) so far</i></small>
+			
+			<div class="responsesout">
+				{% for response in responses %}
+				<div class="responses">
+					<div class='responsedelete'>
+						<div>
+							<a href='/user/profile/{{response.user}}/'><p>@{{response.user }}</a> responded <small>{{response.created | timesince }} ago:</small></p>
+						</div>
+						<div>
+							{%  if request.user == response.user %}
+								<a href = "/user/deleteresponse/{{response.id}}/" class='deleteresponse'><small>Delete Response</small></a>
+								{% endif %}
+						</div>
+						
+						
+					</div>
+					<p>{{response.body }}</p><br/>
+				</div>
+				{% endfor %}
+			</div>
+			
+			<div class='commentform'>
+				<form method="POST" action="">
+					{% csrf_token %}
+					<input name="body" placeholder="enter your response" />
+					<button type="submit" name="submit">Respond</button>
+				</form>
+				{% comment %} <a href="{{request.META.HTTP_REFERER}}"><h2>Go Back</h2></a> {% endcomment %}
+			</div>
+		</main>
+	</body>
+</html>
+
+{% endblock content %}

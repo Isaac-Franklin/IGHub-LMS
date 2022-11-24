@@ -1,0 +1,39 @@
+{% extends 'generalsection.html' %}
+{% block content %}
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>All Assignments</title>
+		<link rel="stylesheet" href="{% static 'styles/allassignments.css' %}" />
+	</head>
+	<body>
+        <main>
+            <div class="mainsection">
+                <a href="{% url 'AllAssignments' %}"><h1>All Assignments</h1></a>
+                <small>[Kinldy click on each assignments to see all related  submissions]</small>
+                <form action="" method="GET" >
+                    <input name="query" type="text" placeholder="Search For An Assignment" />
+                    <button>Find Assignment</button>
+                </form>
+                <br/><br/>
+                {% for assignment in assin %}
+                <div class="assignment">
+                    <a href="/user/assignmentsumlist/{{assignment.id}}"> <h3>{{ assignment.title }}</h3> </a>
+                    <h4>Submission time: {{ assignment.data_of_submission }}<p>
+                    <small>Given by {{assignment.user }}</small> | 
+                    <small>Assigned Track: {{assignment.track }}</small>
+                </div><br/>
+                {% endfor %}               
+            </div>
+
+        </main>
+    </body>
+</html>
+
+
+{% endblock content %}

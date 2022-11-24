@@ -1,0 +1,45 @@
+<!-- @format -->
+{% extends 'generalsection.html' %} {% block content %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>QUIZ | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/tutorquizdetails.css' %}" />
+	</head>
+	<body>
+		<main>
+            <div class="maininner">
+                <div>
+                    <h4>{{ quiz.user}} Asked:</h4>
+                    <h1>{{ quiz.question }}</h1>
+                    <small>Tip: {{ quiz.tips }}</small><br />
+                    <small>Prize: {{ data.prize }}</small><br /><br />
+                    <small>Created {{ quiz.created | timesince }} ago </small>
+                </div>
+                <br /><br />
+                <small><i> There are {{ count_responses }} response(s) so far</i></small>
+                {% for response in responses %}
+                <div class="responsesout">
+                    <div class="responses">
+                        <a href=""><p>@{{response.user }}</p></a>
+                        <p>{{response.body }}</p>
+                        <small>{{response.created | timesince }} ago | <a href = "/staff/deleteresponse/{{response.id}}/"> Delete Response</a></small>
+                    </div>
+                </div>
+                {% endfor %}
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <input name="body" placeholder="enter your response" />
+                    <button type="submit" name="submit">Respond</button>
+                </form>
+                <a href={% url 'TutorQuestion' %}><h2>Go Back</h2></a>
+            </div>
+			
+		</main>
+	</body>
+</html>
+
+{% endblock content %}

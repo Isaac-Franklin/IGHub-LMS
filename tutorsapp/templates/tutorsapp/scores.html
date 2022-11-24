@@ -1,0 +1,26 @@
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Dashboard | LMS Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styles/tutordashboard.css' %}">
+</head>
+    <body>
+        <main>
+            <p>Welcome to the scores board</p> 
+            <div>
+                <form method = 'POST'>
+                    {% csrf_token %}
+                    <input type="text" name = "firstname">
+                    <input type="text" name="track">
+                    <input type="text" name="fellowscore">
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+         </main>
+    </body>
+<html>

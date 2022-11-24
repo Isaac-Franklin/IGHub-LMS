@@ -1,0 +1,53 @@
+<!-- @format -->
+{% load static %} {% block content %}
+<p>Welcome To The Test Page</p>
+
+{% for data in data %}
+<br />
+
+{% if data.profilepicture %} <br />
+<img src="{{ data.profilepicture.url }}" />
+{% comment %}
+<img src="{{ data.profilepicture.url }}" /> {% endcomment %} {% endif %} <br />
+{% comment %} <img src = {% static'imaes/dashboard/loadings.png'%}/> <br />
+{% endcomment %} {% comment %} {% else %} {% endcomment %} {% comment %}
+<img src="{{ data.profilepicture.url }}" /> {% endcomment %} {{ data.username }}
+<br />
+{% endfor %}<br />
+
+<br />
+{% if user.is_authenticated %}
+<h1>Hi {{user.username}},</h1>
+<h2>Welcome Back</h2>
+{% endif %} <br />
+
+{{ data.email }} {% comment %} ///test start here {% endcomment %} {% comment %}
+<br />
+{% if user.is_authenticated %}{% for data in data %}<br />
+{% if {{user.username}} == {{ data.username }} %}<br />
+
+<h1>Hi {{user.username}},</h1>
+{{ data.username }}
+<br />
+{% endfor %}
+<br />
+{% endif %}
+<br />
+{% endcomment %} {% comment %} test end here {% endcomment %} {% comment %}
+//CORECT DATA BELLOW {% endcomment %}
+
+<!-- @format -->
+{% comment %} {% load static %} {% block content %}
+<p>Welcome To The Test Page</p>
+<br />
+
+<img src="{{ data.profilepicture.url }}" />
+
+{{ data.track }}
+<br />
+{% if user.is_authenticated %}
+<h1>Hi {{user.username}},</h1>
+<h2>Welcome Back</h2>
+{% endif %} <br />
+
+<br />{% endblock content %} {% endcomment %} <br />{% endblock content %}

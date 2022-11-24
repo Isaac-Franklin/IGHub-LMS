@@ -1,0 +1,474 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* color: grey; */
+}
+
+body {
+    overflow-x: hidden;
+    background-color: rgb(199, 199, 199);
+}
+
+.dashboardintro p {
+    color: black;
+    z-index: -2;
+
+}
+
+
+
+.dashboardintro {
+    padding-top: 70px;
+    margin-left: 60px;
+    /* margin-right: 40px; */
+    position: relative;
+    top: 30px;
+}
+
+.topsection p {
+    color: black;
+}
+
+/* JOB UPDATES SECTION STARTS HERE */
+
+
+.jobsSection {
+    margin-top: -50px
+}
+
+.mainbodyTop {
+    background-color: #3D4296;
+    height: 60vh;
+    box-shadow: 0px 0px 10px #888888;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+}
+
+
+
+.jobssidebararea {
+    width: 24%;
+    overflow: hidden;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    margin-top: 158px;
+    margin-right: 0px;
+}
+
+
+.jobupdatesection {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+
+}
+
+.jobupdatesection::-webkit-scrollbar {
+    display: none;
+}
+
+
+.jobupdatesection button {
+    padding: 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: #F58731;
+    border: 0px;
+    margin-top: 5px;
+}
+
+.jobupdatesection button a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.titlejobsection {
+    color: white;
+    text-transform: uppercase;
+    margin: auto;
+    font-size: 1.2rem;
+    border: solid 1px #F58731;
+    padding: 10px;
+    text-align: center;
+    transition: 0.5s ease-in-out;
+}
+
+.titlejobsection:hover {
+    background-color: white;
+    color: #F58731;
+    cursor: crosshair;
+}
+
+/* LOADER SVG EDITS */
+.loader {
+    margin: 5rem auto;
+    text-align: center;
+    /* display: none; */
+    /* background-color: black; */
+}
+
+.loader img {
+    height: 3.5rem;
+    width: 3.5rem;
+    transform-origin: 44% 50%;
+    animation: rotate 1.5s infinite linear;
+    z-index: 12;
+}
+
+
+/* JOB UPDATE API SECTION ENDS HERE */
+
+.mainbody {
+    width: 73.5%;
+}
+
+.generaldiv {
+    margin-left: 20px;
+    /* width: 100vw; */
+}
+
+.generalannouncetab {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    justify-content: space-between;
+    height: 50vh;
+    /* width: 80vw; */
+    /* width: 50vw; */
+
+}
+
+.dashboardquiz {
+    padding: 10px;
+    box-shadow: 1px 1px 3px #888888;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.Ganounce h3 {
+    color: black;
+    margin-bottom: 10px;
+}
+
+
+.Ganounce {
+    padding: 10px;
+    box-shadow: 1px 1px 3px #888888;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.Ganouncesection1 {
+    padding: 10px;
+    box-shadow: 1px 1px 3px #888888;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.Ganouncesection2 {
+    padding: 10px;
+    box-shadow: 1px 1px 3px #888888;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: 180px;
+    /* overflow-x: scroll; */
+    overflow: hidden;
+
+}
+
+.allquiz {
+    display: inline;
+    width: 100%;
+}
+
+.Ganouncesection2::-webkit-scrollbar {
+    display: none
+}
+
+.quizproper {
+    width: 100%;
+    padding-right: 20px;
+}
+
+.quizproper i {
+    height: 80px;
+}
+
+.scoresheet button {
+    padding: 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: #3D4296;
+    border: 0px;
+    color: white;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.scoresheet {
+    padding: 10px;
+    /* height: 290px; */
+    box-shadow: 1px 1px 3px #888888;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.scoresheet img {
+    margin: 20px;
+    margin-top: 20px;
+
+}
+
+.scoresheet h1 {
+    font-size: 3rem;
+    margin-top: 20px;
+}
+
+.scoresheet p {
+    font-size: 1.5rem;
+}
+
+.tutorialsection {
+    margin-top: 5px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 2px 2px 5px #888888;
+    overflow-x: scroll;
+    height: 60vh;
+    overflow-y: hidden;
+    border-radius: 10px;
+}
+
+.videofile {
+    margin-top: 10px;
+    display: flex;
+}
+
+.videofileinner {
+    margin-right: 10px;
+    /* background-color: #F58731; */
+    /* padding: 10px; */
+    border-radius: 20px;
+
+}
+
+.small {
+    color: #F58731;
+}
+
+.usersdisplay {
+    height: 50vh;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 5px;
+    padding: 10px;
+    box-shadow: 2px 2px 5px #888888;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 10px;
+
+
+
+}
+
+.usersdisplay::-webkit-scrollbar {
+    display: none;
+}
+
+
+.usersdisplayinner {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.usersdisplayinner img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 30px;
+    margin-right: 5px;
+    box-shadow: 2px 2px 5px #888888;
+}
+
+.userinfo p {
+    color: black;
+}
+
+.userinfo img {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.userinfo img:hover {
+    transform: scale(1.6);
+}
+
+.usersdisplay h2 {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.usersdisplayinner a {
+    text-decoration: none;
+
+}
+
+.assignments {
+    padding-top: 40px;
+    padding: 30px;
+    background-color: white;
+    width: 95vw;
+    margin-top: 70px;
+    margin-left: 58px;
+    box-shadow: 2px 2px 5px #888888;
+    margin-bottom: 70px;
+    border-radius: 10px;
+    overflow: scroll;
+
+}
+
+#taskview {
+    padding: 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: #F58731;
+    border: 0px;
+    /* margin-top: 5px; */
+    cursor: pointer;
+}
+
+table {
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+
+tr {
+    border-bottom: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+th {
+    padding: 5px;
+}
+
+
+td {
+    padding: 20px;
+    width: 10px;
+    margin-right: 20px;
+    /* background-color: red; */
+    text-align: left;
+    /* cursor: pointer; */
+}
+
+tr:hover {
+    background-color: #D6EEEE;
+}
+
+
+.countTime p {
+    display: inline;
+    font-size: 1rem;
+    color: red;
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+
+
+
+/* START OF MEDIA QUERY FOR RESPONSIVENESS */
+@media only screen and (max-width: 950px) {
+    .generaldiv {
+        margin-left: 0px;
+        /* width: 100vw; */
+    }
+
+    .jobssidebararea {
+        width: 24%;
+        overflow: hidden;
+        position: absolute;
+        right: 0px;
+        top: 0;
+        margin-top: 158px;
+        margin-right: 10px;
+        display: none;
+    }
+
+    .generalannouncetab {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: space-between;
+        height: 100%;
+        width: 83vw;
+
+    }
+
+    .scoresheet {
+        margin: 10px 0px;
+        padding: 10px;
+        /* height: 290px; */
+        box-shadow: 1px 1px 3px #888888;
+        background-color: white;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .scoresheet img {
+        margin: 15px;
+        margin-top: 15px;
+
+    }
+
+    .scoresheet h1 {
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+
+    .scoresheet p {
+        font-size: 1.5rem;
+    }
+
+    .tutorialsection {
+        margin-top: 5px;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 2px 2px 5px #888888;
+        overflow-x: scroll;
+        height: 55vh;
+        overflow-y: hidden;
+        border-radius: 10px;
+        width: 83vw;
+    }
+
+    .assignments {
+        padding-top: 40px;
+        padding: 30px;
+        background-color: white;
+        width: 83vw;
+        margin-top: 70px;
+        margin-left: 58px;
+        box-shadow: 2px 2px 5px #888888;
+        margin-bottom: 70px;
+        border-radius: 10px;
+        overflow: scroll;
+
+    }
+}

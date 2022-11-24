@@ -1,0 +1,67 @@
+{% extends 'generalsection.html' %}
+{% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>LMS Dashboard</title>
+		<link rel="stylesheet" href="{% static 'styles/assgnmentsubmitlist.css' %}" />
+	</head>
+	<body>
+        <main>
+			<div class="mainsection">
+				<a href="{% url 'AllAssignments' %}"><h4>All Assignments</h4></a>
+            <h1> Title: {{ assign.title }}</h1>
+            <small> Slated submission time: {{ assign.data_of_submission }}</small>
+            <h4>You have {{ numberofsubmit }} submission(s) so far.</h4>
+
+            <div class='taskstable'>
+				<table>
+					<tr>
+					<th>Name</th>
+					<th>Submission</th>
+					<th>Time Of Submission</th>
+					{% comment %} <th>CLICK HERE TO GRADE</th>
+					<th>CLICK HERE TO GRADE</th>
+					<th>CLICK HERE TO GRADE</th> {% endcomment %}
+					{% comment %} <th>Feedback</th> {% endcomment %}
+					</tr>
+					{% for sub in sub %}
+					<tr>
+							<td name='fellowname' default = {{ sub.user }}>{{ sub.user }}</td>
+							<td name = 'assignment' default = {{ sub.submission }}>{{ sub.submission }}</td>
+							<td name = 'submissiontime' default = {{ sub.created }}>{{ sub.created }}</td>
+					</tr>
+					
+						<form method = "POST" action = "">
+							{% csrf_token %}
+							<input class='dontshow' name='fellowname' value = "{{sub.user}}" placeholder = {{ sub.user }} />
+							<input class='dontshow' name = 'assignment' value = "{{sub.submission}}" placeholder = {{ sub.submission }} />
+							<input class='dontshow' name = 'submissiontime' value = "{{ sub.created }}" placeholder={{ sub.created }} />
+						<tr>
+							<td>
+								<input type="integer" name="assignmentscore" placeholder="Enter Score"/>
+							</td>
+							<td>
+								<input type="text" name="feedback"  placeholder="Enter any feedback"/>
+							<td/>
+							<td>
+								<button type = "submit" name='submit'>Grade</button>
+							</td>
+                        </form>
+						{% endfor %}
+						</tr>
+				</table>
+                <div>
+                    <h2>{{ sub.submission }}</h2>
+                    <h2>{{ sub.created }}</h2>
+                </div>
+			</div>
+			</div>
+        </main>
+    </body>
+<html>
+
+{% endblock content %}

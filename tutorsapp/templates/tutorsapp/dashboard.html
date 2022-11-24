@@ -1,0 +1,196 @@
+{% extends 'generalsection.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load embed_video_tags %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Dashboard | LMS Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styles/tutordashboard.css' %}">
+</head>
+<body>
+    {% comment %} <div class="nav">
+        <ul>
+            <div class="logo">
+                <img src="{% static 'images/tutordashboard/IG hub Logo.png' %}" alt="" srcset="">
+            </div>
+            <div class="notified">
+                <i class="fa-solid fa-envelope"></i>
+                <i class="fa-regular fa-bell"></i>
+                <i class="fa-regular fa-circle-user"></i>
+            </div>
+            <div class="navcontrol">
+                <img src="{% static 'images/tutordashboard/opennav.png' %}">
+            </div>
+            <div class="navcontro2">
+                <img src="{% static 'images/tutordashboard/closenav.png' %}">
+            </div>
+        </ul>
+    </div> {% endcomment %}
+    <!-- full section -->
+        <!-- the full section is divided into two the instructor and the body, they're in different div -->
+        <!-- The instructor dashboard starts from here.......... -->
+       
+        <!-- the instructor ends here ........... -->
+        <!-- the body div that contains the dashboard starts here -->
+        <div class="body">
+            
+            <div class="body-content">
+
+                <p>Hi {{ user.username }},</p>
+                <h1>Welcome Back!</h1>
+
+
+            </div>
+            <div class="body-item">
+                <div class="mainsection">
+                    <div class="studentdata">
+                        <a href = {% url 'FellowTrack' %}><div class="pind1">
+                            <p><img src="{% static 'images/tutordashboard/pind students icon.png' %}" alt="" srcset="" width="50px"></p>
+                            <p>{{ numberofstudents }}
+                                <br/>
+                                Total Number of Fellows</p>
+                        </div></a>
+                        <div class="pind">
+                            <p><img src="{% static 'images/tutordashboard/pind students icon (1).png' %}" alt="" srcset="" width="50px"></p>
+                            <p><b>0</b> <br/>
+                                Total Number of paid Students</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video">
+                        <h1>Videos Uploaded</h1>
+                        <div class="videoinner">
+                          {% for Video in videos %}
+                                <div class='videofileinner'>
+                                    <small>Track: {{ Video.Select_Track }}</small>
+                                    {% video Video.Video '250x165' %}<br/>
+                                    Title: <strong>{{ Video.Select_Title }}</strong><br/>
+                                    {{ Video.Video_Description }}
+                                </div>
+                            {% endfor %}  
+                        </div>
+                        
+                        <br/>
+                        <a href="{% url 'VideoUpload' %}"><button type="submit">Upload A Video</button></a>
+                    </div>
+                </div>
+
+                <div class="studentout">
+                    <div class="student">
+                        <h1>Fellow's Perfomance</h1>
+                        <div>
+                            <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Assignment Title</th>
+                                    <th>Score</th>
+                                    <th>Feedback</th>
+                                </tr>
+                                {% for grades in grades %}
+                                <tr class='groupdata'>
+                                    <td class = 'name'>{{ grades.name }}</td>
+                                    <td class = 'assignment'>{{ grades.assignment }}</td>
+                                    <td class = 'grade'>{{ grades.score }}</td>
+                                    <td>{{ grades.feedback }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="discussandquiz">
+                <div class="discuss">
+                    <div class="discuss-head">
+                     <div class='disstop'>
+                        <div>
+                            <h1 style= "color:black;">Discussion Comments</h1>
+                        </div>
+                        <div>
+                            <a href="{% url 'TutorQuestion' %}"><button class="viewmorequest">View All </button></a>
+                        </div>
+                     </div>
+                        <br>
+                    </div>
+
+                    <div class="comments">
+                        {% for rooms in rooms %}
+                        <small>@{{ rooms.user }} Created a room with the question:</small>
+                            <a href="tutorquestiondetails/{{rooms.id}}/"><h4>{{ rooms.question }}?</h4></a>
+                            <br/>
+                            {% comment %} <p>{{ response.body }}</p><br/> {% endcomment %}
+                        {% endfor %}
+                    </div>
+                    <div class="dix"></div>
+                </div>
+                <div class="quizsubmit">
+                    <div class='quizintro'>
+                        <div>
+                            <h1>Quiz Questions</h1>
+                        </div>
+                        <div>
+                            <a href="{% url 'Tutorquiz' %}"><button>See All Quizes</button></a>
+                        </div>
+                    </div>
+                    
+                    <div class="quizinner">
+                        {% for quizanswer in quizanswer %}
+                            <div>
+                                <small>{{quizanswer.quiz.user}} asked a quiz:</small>
+                                <a ><p>{{quizanswer.quiz}}</p></a>
+                                <a ><h4> @{{ quizanswer.user }} </a>
+                                    responded:</h4>
+                                    <p>"{{ quizanswer.response }}"</p>
+                            </div><br/>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="assignsubmit">
+                <h1>Assignments</h1><br/>
+                <a href="{% url 'Createassignment' %}"><button>Create An Assignement</button></a>
+                <a href="{% url 'AllAssignments' %}"><button>See All Assignements & Submissions</button></a><br/><br/>
+                <div class='taskstable'>
+                    <table>
+                        <tr>
+                        <th>Task Title</th>
+                        <th>Track</th>
+                        <th>Task Description</th>
+                        <th>Task End Time</th>
+                        <th>Task Score</th>
+                        <th>View Details</th>
+                        </tr>
+                        {% for assign in assign %}
+                        <tr>
+                            <td>{{ assign.title }}</td>
+                            <td>{{ assign.track }}</td>
+                            <td>{{ assign.short_description }}</td>
+                            <td>{{ assign.data_of_submission }}</td>
+                            <td>{{ assign.task_point }}</td>
+                            <td><a href = "/staff/tutorassignment/{{assign.id}}"><button id = "taskview"  type='submit' name=""> See Details</button></a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    {% comment %} {% url 'Tutor_Assignment_page' %} {% endcomment %}
+                </div>
+            </div>
+            <footer>
+                <div>&copy 2022, Innovation Growth Hub | Powered By IGHub</div>
+                <div> IGHUB Learning Management Platform</div>
+            </footer>
+            
+        </div>
+        <!-- QUIZE SCORES AND SUBMISSIONS -->
+        
+       
+<script src="js/admindashboard.js"></script>
+<script src= {% static 'js/admindashboard.js' %}></script>
+</body>
+</html>
+
+{% endblock content %}

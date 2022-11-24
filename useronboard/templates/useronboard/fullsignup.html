@@ -1,0 +1,233 @@
+<!-- @format -->
+{% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/x-icon" href={% static 'images/general/IGhubLogo2.png' %}>
+		<link rel="stylesheet" href={% static 'styles/fullsignup.css' %} />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sign Up | IGHUB LMS</title>
+	</head>
+	<body>
+		<div class ="topsection">
+			
+			<div class="topsectiontext">
+				{% comment %} <h2>Hello</h2> {% endcomment %}
+				<p>
+					The Registration Consist Of Three Stages, Kindly Scroll Towards The Right To Continue After Filling Each Page 
+
+				</p>
+			</div>
+			<div>
+				<img src={% static 'images/general/IGhubLogo.png' %}>
+			</div>
+		</div>
+		
+		<div class="circleanime"></div>
+		<div class="fullboxout">
+			<div class="fullboxinner">
+				<div class="box1 box">
+					<main>
+						<div class="detailsSectionintro">
+							<div class="introSection">
+							</div>
+
+							<div class="detailsSection">
+								<div id="flash">
+									{% if messages %} {% for message in messages %}
+									<div class="alert alert-{{ message.tags}} m-0" role="alert">
+									  <strong style = "color : red;">{{ message }}</strong>
+									</div>
+									{% endfor %} {% endif %}
+								  </div>
+								<h4 style = "margin-bottom: 50px;">Basic ID Infomation</h4>
+								<form method="POST" action=""  enctype="multipart/form-data">
+									{% csrf_token %}
+										<p id="pagenumber">1/3</p>
+										{% comment %} <h4>Complete Profile Details</h4> {% endcomment %}
+										<label  style = "margin-top: 10px;" >Enter Your First & Last Name <span style = 'color: red;'>*</span></label>
+										<div class = "firstandlastname">
+											<input
+											style = "margin-right: 10px;"
+												type="text"
+												name="firstname"
+												placeholder="eg: John [ Firstname ]"
+											/>
+											<input type="text" name="lastname" placeholder="eg: Doe [ Last Name ]" />
+										</div>
+										
+										<label>User Name [ Must Be Unique ]<span style = 'color: red;'>*</span></label>
+										<input
+											type="text"
+											name="username"
+											placeholder="eg: John doe"
+										/>
+										<label>Email Address<span style = 'color: red;'>*</span></label>
+										<input
+											type="text"
+											name="email"
+											placeholder="eg: johndoes@gmail.com"
+										/>
+										
+										<label>Select Your Track<span style = 'color: red;'>*</span></label>
+										<select name="track">
+											<option>-----</option>
+											<option value="Digital Marketing">
+												Digital Marketing
+											</option>
+											<option value="Fullstack Web Dev.">
+												Full-Stack Web Development
+											</option>
+											<option value="Product Design">Product Design</option>
+											<option value="Data Science">Data Science</option>
+											<option value="Embedded systems">Embedded Systems</option>
+										</select>
+										<label>Phone Number</label>
+										<input
+											type="number"
+											name="phonenumber"
+											placeholder="eg: 07011567240"
+										/>
+										<label>Date Of Birth</label>
+										<input
+											type="date"
+											name="dateofbirth"
+											placeholder="01/01/1999"
+										/>
+										<label>Password<span style = 'color: red;'>*</span></label>
+										<input type="password" name="password" placeholder="****" />
+										<label>Retype Password<span style = 'color: red;'>*</span></label>
+										<input
+											type="password"
+											name="rtpassword"
+											placeholder="****"
+										/>
+
+										<div class="loginInstead">
+											<p>
+												Already Created An Account?
+												<a style="color: blue" href="#">Login</a>
+											</p>
+										</div>
+										<div class="copyrightSection">
+											<div>&copy 2022 | POWERED BY IGHUB</div>
+											<div>
+												<a href="#">Report A Bug</a>
+											</div>
+										</div>
+							</div>
+						</div>
+					</main>
+				</div>
+				<div class="box2 box">
+					<div class="detailsSectionintro">
+						<div class="introSection">
+							{% comment %} {% for stageone in stageone%} {% endcomment %}
+							
+							{% comment %}
+							<p>{{ user.username }}</p>
+							{% endcomment %} {% comment %} {% endfor %} {% endcomment %}
+						</div>
+
+						<div class="detailsSection">
+									<p id="pagenumber">2/3</p>
+									<h4 style = "margin-bottom: 50px;">Social Media Contacts</h4>
+									{% comment %} {% for stageone in stageone%}
+									<input
+										value="{{stageone.firstname}}"
+										placeholder="{{stageone.firstname}}"
+									/>
+									{% endfor %} {% endcomment %}
+									<label id="label">GitHub Profile Link</label>
+									<input
+										type="text"
+										name="githubacctlink"
+										placeholder="http://github.com/username"
+									/>
+									<label id="label">LinkedIn Profile Link<span style = 'color: red;'>*</span></label>
+									<input
+										type="text"
+										name="linkedinacctlink"
+										placeholder="http://linkedin.com"
+									/>
+									<label class="label">Twitter Profile Link<span style = 'color: red;'>*</span></label>
+									<input
+										type="text"
+										name="twitteracctlink"
+										placeholder="http://twitter.com/username"
+									/>
+									<label class="label">Facebook Profile Link</label>
+									<input
+										type="text"
+										name="facebookacctlink"
+										placeholder="http://facebook.come/username"
+									/>
+									<label class="label">Instagram Profile Link</label>
+									<input
+										type="number"
+										name="instagramacctlink"
+										placeholder="http://Instagram.com/username"
+									/>
+									<label class="label">Personal Website Link</label>
+									<input
+										type="number"
+										name="portfoliowebsitelink"
+										placeholder="http://mywebsite.com"
+									/>
+
+									<div class="loginInstead">
+										<p>
+											Already Created An Account?
+											<a style="color: blue" href="#">Login</a>
+										</p>
+									</div>
+									<div class="copyrightSection">
+										<div>&copy 2022 | POWERED BY IGHUB</div>
+										<div>
+											<a href="#">Report A Bug</a>
+										</div>
+									</div>
+						</div>
+					</div>
+				</div>
+				<div class="box3 box">
+					<div class="detailsSectionintro">
+						<div class="introSection1">
+						</div>
+						<div class="detailsSection">
+							<h4 style = "margin-bottom: 50px;">Choose A Profile Image<span style = 'color: red;'>*</span></h4>
+								<p id="pagenumber">3/3</p>
+									<div class="profileupload">
+										<div>
+											<img src="{% static 'images/general/profile-image.png' %}">
+											<input class='profilepicinput' type="file" name="profilepic"  accept="image/png, image/gif, image/jpeg"/>
+										</div>
+										
+										<p>[Upload A Profile Image]</p>
+									</div>
+									<div class="footerSection">
+										<h3>Already Created An Account? <a style="color: blue;" href="#">Login</a></h3>
+										<button id = "button" type = 'submit' name= 'submit'>Dashboard</button>
+									</div>
+									
+								<div class="copyrightSection">
+									<div>
+										&copy 2022 | POWERED BY IGHUB
+									</div>
+									<div>
+									   <a href="#">Report A Bug</a> 
+									</div>
+								</div>
+								</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script defer src="main.js"></script>
+	</body>
+</html>
+{% endblock content %}

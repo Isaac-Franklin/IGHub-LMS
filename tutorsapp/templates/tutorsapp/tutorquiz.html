@@ -1,0 +1,51 @@
+<!-- @format -->
+{% extends 'generalsection.html' %} {% block content %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>QUIZ | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/tutorquiz.css' %}" />
+	</head>
+	<body>
+		<main>
+            <div class="innermain">
+                <div class="welcomequiz">
+                   <div>
+                        <p> <h3>Hi {{ user.username }},</h3> Welcome to the Quizes section,</p>
+                        <small>[Kindly click on each question to see its details]</small>
+                   </div>
+                   <div>
+                        <a href={% url 'Createquiz' %}><button>Create A Quiz</button></a>
+                   </div>
+                </div>
+                {% for quizproper in quizproper %}
+                <div class="quizproper">
+                    <h4>{{ quizproper.user}} Asked:</h4>
+                    <a href="/staff/tutorquizdetails/{{ quizproper.id }}/"
+                        ><h3>"{{ quizproper.quiz}}?"</h3></a><br/>
+                    <small>Notes: {{ quizproper.notes }}</small><br />
+                    <small>Prize: {{ quizproper.prize }}</small><br /><br />
+                    <small>Created {{ quizproper.created_at | timesince }} ago</small>
+    
+                    {% comment %}
+                    <div>
+                        <h3>Responses</h3>
+                        <div>
+                            <p></p>
+                        </div>
+                    </div>
+                    {% endcomment %}
+                </div>
+                <br />
+                <br />
+                <br />
+                {% endfor %}
+            </div>
+
+		</main>
+	</body>
+</html>
+{% endblock %}

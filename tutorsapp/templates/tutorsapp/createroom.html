@@ -1,0 +1,27 @@
+<!-- @format -->
+{% extends 'generalsection.html' %} {% block content %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Create A Room | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/tutorcreateroom.css' %}" />
+	</head>
+	<body>
+		<main>
+            <div class="mainsection">
+                <h1>Create An Room</h1>
+                <small>[Kinldy Fill The Form Below To Create A Room]</small>
+                <form action="" method="POST" >
+                    {% csrf_token %}
+                    <input name="question" type="text" placeholder="Enter A Question" /><br/>
+                    <input name="tips" type="text" placeholder="Enter Any Points Or Tips [If Any]" /><br/>
+                    <button type="submit">Create A Room</button>
+                </form>              
+            </div>
+        </main>
+    </body>
+</html>
+{% endblock content %}

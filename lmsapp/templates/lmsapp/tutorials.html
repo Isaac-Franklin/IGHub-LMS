@@ -1,0 +1,32 @@
+<!-- @format -->
+
+{% extends 'general.html' %} {% block content %}<br />
+{% load static %} {% load embed_video_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Tutorials | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/tutorials.css' %}" />
+	</head>
+	<body>
+		<div class="videosPropeout">
+			<h1>Tutorial & Training Videos</h1>
+			<div class="videoproperin">
+				{% for Video in video %}
+				<div class="videosProper">
+					<i>Track: {{ Video.Select_Track }} </i>
+					<div class="videosss">{% video Video.Video '390x295' %}<br /></div>
+					<h2>{{ Video.Select_Title }}</h2>
+					<h3>{{ Video.Video_Description }}</h3>
+					{% comment %} <p>Further Description:</p> {% endcomment %}
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</body>
+</html>
+
+{% endblock content %}

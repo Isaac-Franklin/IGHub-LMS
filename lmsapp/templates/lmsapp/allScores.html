@@ -1,0 +1,44 @@
+<!-- @format -->
+{% extends 'general.html' %} 
+{% load static %}
+{% block content %} 
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title> All Scores | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/allscores.css' %}" />
+	</head>
+	<body>
+        <main>
+            <div class="topcover">
+                <h1>Grade(s)</h1>
+                <div class='taskstable'>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Assignment Title</th>
+                            <th>Score</th>
+                            <th>Feedback</th>
+                        </tr>
+                        {% for grades in grades %}
+                        {% if grades.name == user.username %}
+                            <tr class='groupdata'>
+                                <td class = 'name'>{{ grades.name }}</td>
+                                <td class = 'assignment'>{{ grades.assignment }}</td>
+                                <td class = 'grade'>{{ grades.score }}</td>
+                                <td>{{ grades.feedback }}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </main>
+        <script  type="module" src= {% static 'js/scorescalc.js' %}></script>
+    </body>
+</html>
+
+{% endblock content %}

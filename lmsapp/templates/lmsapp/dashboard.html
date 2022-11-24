@@ -1,0 +1,163 @@
+<!-- @format -->
+{% extends 'general.html' %}
+{% load embed_video_tags %}
+{% load static %} 
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/x-icon" href={% static 'images/general/IGhubLogo2.png' %}>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>LMS Dashboard</title>
+		<link rel="stylesheet" href="{% static 'styles/dashboard.css' %}" />
+	</head>
+	<body>
+		<div class="generaldiv">
+			<div class = "dashboardintro">
+				<div class="mainbody">
+					{% if user.is_authenticated %}
+					<p>Hi {{user.username}},</p>
+					<h2>Welcome Back</h2>
+					{% endif %}
+
+					<div class="generalannouncetab">
+						<div class='Ganounce'>
+							<div class='Ganouncesection1'>
+								<h3>General Announcement</h3>
+								<p>Every general announment from the management will be displayed here when available</p>
+							</div>
+							<div class='Ganouncesection2'>
+								<h3>Latest Room/Discussion Topic</h3>
+								<div class="allquiz">
+									<div class="quizproper">
+										<a href='/user/profile/{{quiz.user}}/'><p> @{{ quiz.user }} </a>
+										Asked:</p>
+										<p>"{{ quiz.question }}"</p>
+								</div><br/>
+								<a href="{% url 'Room' %}"><h4>
+									Visit The Room/Discussion Section To View All Responses
+								</h4></a>
+							</div>
+							</div>
+												
+						</div>
+						<div class = "scoresheet">
+							<p>My Score Sheet</p>
+							{% comment %} <img src = "{% static 'images/dashboard/scoreimg.png' %}"/> {% endcomment %}
+							{% comment %} <h1>100</h1> {% endcomment %}
+							<a href={% url 'AllScores' %}><button> See All Your Scores</button></a>
+							<div class='dashboardquiz'>
+								<small>Latest Quiz(●'◡'●)</small>
+								<h3>Tutor {{ quizes.user }} Asked:</br></h3>
+								<strong>"{{ quizes.quiz }}"</strong></br>
+								Help Note(s): {{ quizes.notes }}</br>
+								Winner Prize: <strong>{{ quizes.prize }}</strong></br></br>
+								<a href={% url 'Quizsection' %}><button>See Details</button></a>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="tutorialsection">
+						<div><h3>Tutorial/ Training Videos</h3></div>
+						<div class='videofile'>
+							{% comment %} /MAIN VIDEO DISPLAY {% endcomment %}
+							{% for Video in video %}
+									<div class='videofileinner'>
+										<small>Track: {{ Video.Select_Track }}</small>
+										{% video Video.Video '250x165' %}<br/>
+										Title: <strong>{{ Video.Select_Title }}</strong><br/>
+										{{ Video.Video_Description }}
+									</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+			<div class="jobssidebararea">
+				<div class='usersdisplay'>
+					<h2>Users</h2>
+					{% for userData in userData %}
+						<div class='usersdisplayinner'>
+							{% if userData.profilepicture %} <br />
+							{% comment %} <img src = {% static 'images/general/userprofilepic.png'%}/> {% endcomment %}
+							<div> <img src="{{ userData.profilepicture.url }}" /> </div>
+							{% else %}
+							<img src = {% static 'images/general/user.png'%}/>
+							{% endif %} 
+							<div>
+								<div><a href='/user/profile/{{userData.username}}/'><h4>@{{userData.username}}</h4> </a></div>
+								<div class="userinfo"> <p>{{userData.track}}</p> 
+									<a href="{{userData.linkedIn}}"><img title="{{userData.linkedIn}}" src="{% static "images/dashboard/linkedin.png" %}"></a>
+									<a href="{{userData.twitter}}"><img title="{{userData.twitter}}" src="{% static "images/dashboard/twitter.png" %}"></a>
+									<a href="{{userData.facebook}}"><img title = "{{userData.facebook}}" src="{% static "images/dashboard/facebook.png" %}"></a>
+									<a href="{{userData.github}}"><img title = "{{userData.github}}" src="{% static "images/dashboard/github.png" %}"></a>
+								</div>
+							</div>
+						</div>
+					{%  endfor  %}
+				</div>
+				<div class="mainbodyTop">
+					<div class="jobupdatesection">
+						<h3 class="titlejobsection">Job Updates</h3>
+						<div class="loader">
+							<img src = {% static 'images/dashboard/loadings.png'%}/>
+						</div>
+						<div class="jobsSection">
+							<!-- <div class="companyname"><p>Company Name</p> </div>
+								<div class="jobtitle">Job Title</div>
+								<div class="jobdes"><h3>Job Description</h3></div>
+								<div class="jobLocation"><p>Job Location</p></div>
+								<div class="remote"><p>Remote?</p></div>
+								<button class="joburl"><a a href="clickheretoapply" target="_blank">Click Here To Apply</a></button>
+								<br><br>`;
+								-->
+						</div>
+
+						<button class="seemorejobbtn">
+							<a href="">See All Job Updates</a>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+		<div class="assignments">
+			<h1>Assignment(s)</h1>
+			<div class='taskstable'>
+				<table>
+					<tr>
+					<th>Task Title</th>
+					<th>Track</th>
+					<th>Task Description</th>
+					<th>Task End Time</th>
+					<th>Task Score</th>
+					<th>View Details</th>
+					</tr>
+					{% for assign in assign %}
+					<tr>
+						<td>{{ assign.title }}</td>
+						<td>{{ assign.track }}</td>
+						<td>{{ assign.short_description }}</td>
+						<td>{{ assign.data_of_submission }}</td>
+						<td>{{ assign.task_point }}</td>
+						<td><a href = "/user/assignment/{{assign.id}}"><button id = "taskview"  type='submit' name=""> See Details</button></a></td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+		<footer>
+			<div>&copy 2022, Innovation Growth Hub | Powered By IGHub</div>
+			<div> IGHUB Learning Management Platform</div>
+		</footer>
+    	<script type="module" src= {% static 'js/minijobapi.js' %} ></script>
+		<script  type="module" src= {% static 'js/coundown.js' %}></script>
+	</body>
+</html>
+{%endblock content %}

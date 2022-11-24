@@ -1,0 +1,50 @@
+<!-- @format -->
+{% extends 'generalsection.html' %} {% block content %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Question | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/tutorquestion.css' %}" />
+	</head>
+	<body>
+		<main>
+            <div class="innermain">
+                <div class="welcomequiz">
+                    <div>
+                        <p> <h3>Hi {{ user.username }},</h3> welcome to the Group Chat section,</p>
+                        <small>[Kindly click on each question to see its details]</small>
+                    </div>
+                    <div>
+                        <a href={% url 'Createroom' %} ><button>Create A Room</button></a>
+                    </div>
+                </div>
+                {% for data in data %}
+                <div class="quizproper">
+                    <p>{{ data.user}} Asked:</p>
+                    <a href="/staff/tutorquestiondetails/{{ data.id }}"
+                        ><h3>"{{ data.question}}?"</h3></a><br/>
+                    <small>Tip: {{ data.tips }}</small><br />
+                    <small>Created {{ data.created | timesince }} ago</small>
+    
+                    {% comment %}
+                    <div>
+                        <h3>Responses</h3>
+                        <div>
+                            <p></p>
+                        </div>
+                    </div>
+                    {% endcomment %}
+                </div>
+                <br />
+                <br />
+                <br />
+                {% endfor %}
+            </div>
+
+		</main>
+	</body>
+</html>
+{% endblock %}

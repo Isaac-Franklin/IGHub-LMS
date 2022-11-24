@@ -1,0 +1,47 @@
+{% extends 'generalsection.html' %}
+{% block content %}
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Upload  A Video | LMS Dashboard</title>
+		<link rel="stylesheet" href="{% static 'styles/uploadvideo.css' %}" />
+	</head>
+	<body>
+        <main>
+            <div class="mainsection">
+                <a href="{% url 'TutorTutorials' %}"><h1>Upload A Tutorial/Training Video</h1></a>
+                <small>[Kinldy Fill The Form Below To Upload A Video]</small>
+                <div id="flash">
+                    {% if messages %} {% for message in messages %}
+                    <div class="alert alert-{{ message.tags}} m-0" role="alert">
+                      <strong style = "color : red;">{{ message }}</strong>
+                    </div>
+                    {% endfor %} {% endif %}
+                  </div>
+                <form action="" method="POST" >
+                    {% csrf_token %}
+                    <select name="track" >
+                        <option value = "">Select A Track</option>
+                        <option value = "Digital Marketers">Digital Marketers</option>
+                        <option value = "Full Stack Web Developers">Full Stack Web Developers</option>
+                        <option  value = "Embedded Systems Engineers">Embedded Systems Engineers</option>
+                        <option  value = "Product/Graphics Designers">Product/Graphics Designers</option>
+                        <option  value = "Data Scientists">Data Scientists</option>
+                    </select><br/>
+                    <input name="title" type="text" placeholder="Enter Video Title" /><br/>
+                    <input id="detailbox" name="description" type="text" placeholder="Enter A Description" /><br/>
+                    <input name="videofile" type="url" placeholder="Enter Video URL" /><br/>
+                    <button type="submit">Upload Video Tutorial</button>
+                </form>              
+            </div>
+        </main>
+    </body>
+</html>
+
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+<!-- @format -->
+{% extends 'generalsection.html' %} {% block content %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quiz Responses | IGHUB LMS PLATFORM</title>
+    <link rel="stylesheet" href="{% static 'styles/tutorquizdetails.css' %}" />
+</head>
+
+<body>
+    <main>
+        <div class="maininner">
+            <div>
+                <div class='quizsectionintro'>
+                    <div>
+                        <h4>{{ quizproper.user}} Asked:</h4>
+                    </div>
+                    <div>
+                        <a href={% url 'Tutorquiz' %}><button>All Quiz Question(s)</button></a>
+                    </div>
+                </div>
+                <h1>{{ quizproper.quiz }}</h1>
+                <small>Tip: {{ quizproper.notes }}</small><br />
+                <small>Prize: {{ quizproper.prize }}</small><br /><br />
+                <small>Created {{ quizproper.created_at | timesince }} ago </small>
+            </div>
+            <br /><br />
+            <small><i> There are {{ quizanswerscount }} response(s) so far</i></small>
+            <div class="responsesout">
+                <br/>
+                {% for quizanswer in quizanswer %}
+                <div class="responses">
+                    <a href="">
+                        <p>@{{quizanswer.user }}</p>
+                    </a>
+                    <p>{{quizanswer.response }}</p>
+                    <small>{{quizanswer.created_at | timesince }} ago | <a> Delete Response</a></small>
+                </div>
+                {% endfor %}
+            </div>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input name="body" placeholder="enter your response" />
+                <button type="submit" name="submit">Respond</button>
+            </form>
+            <a href={% url 'Tutorquiz' %}>
+                <h2>Go Back</h2>
+            </a>
+        </div>
+
+    </main>
+</body>
+
+</html>
+
+{% endblock content %}

@@ -1,0 +1,53 @@
+<!-- @format -->
+{% extends 'general.html' %} 
+{% load static %}
+{% block content %} 
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Rooms | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/room.css' %}" />
+	</head>
+	<body>
+		<main>
+			<div class="welcomequizoutter">
+				<div class="welcomequiz">
+					<p> Hi {{ user.username }}, welcome to the rooms section,</p>
+					<small>[Kindly click on each question to see its details]</small><br/>
+					<small>[You can also create a room by asking a question]</small>
+				</div>
+				<div>
+					<a href={% url 'CreateRoom' %}><button>Create A Room</button></a>
+				</div>
+			</div>
+			
+			<div id="flash">
+				{% if messages %} {% for message in messages %}
+				<div class="alert alert-{{ message.tags}} m-0" role="alert">
+				  <strong style = "color : red;">{{ message }}</strong>
+				</div>
+				{% endfor %} {% endif %}
+			</div>
+			{% for data in roomdata %}
+			<div class="quizproper">
+				<a href='/user/profile/{{data.user}}/'><h2>@{{ data.user }}</a> Asked:</h2>
+				<a href="/user/roomdetails/{{ data.id }}">
+					<h3>"{{ data.question}}?"</h3>
+				</a>
+				<h4>Tip: {{ data.tips }}</h4>
+				<small>Created {{ data.created | timesince }} ago</small><br/>
+				{% if request.user == data.user %}
+				<a href="/user/delete/{{ data.id }}/"><button>Delete This Room</button></a>
+				{% endif %}
+			</div>
+			<br />
+			<br />
+			<br />
+			{% endfor %}
+		</main>
+	</body>
+</html>
+{% endblock %}

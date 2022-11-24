@@ -1,0 +1,75 @@
+<!-- @format -->
+{% extends 'generalsection.html' %}
+{% load static %}
+{% block content %} 
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title> {{ userData.username }}'s Profile | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/tutorprofile.css' %}" />
+	</head>
+	<body>
+        <main>
+            <div class='topcover'>
+                {% comment %} <p>Welcome To Your Profile {{ user.username }},</p> {% endcomment %}
+                <div class='profilepicture'>
+                    {% if data.profilepicture %} <br />
+                    <div>
+                        <img src="{{ userData.profilepicture.url }}" />
+                    </div>
+                    {% else %} 
+                        <img src = {% static 'images/general/user.png'%}/> </br/>
+                    {% endif %}
+                </div>
+            </div>
+            <div class='profiledetails'>
+               <div>
+                    <h2>{{userData.firstname }} {{userData.lastname }}</h2>
+                    <h3>@{{userData.username }} </h3>
+               </div>
+               <div>
+                    {{ userData.track }}
+               </div>
+            </div>
+            <div class='biosection'>
+                {% comment %} <small>This section is only visile to</small> {% endcomment %}
+                <div>
+                    <h2>Activity Tab</h2>
+                    
+                        <p>Rooms Created By {{ userData.username }}: </p><br/>
+                        {% for roomdata in roomdata %}
+                            {% if roomdata.user == userData.username %}
+                            {% comment %} {% if roomdata.question %} {% endcomment %}
+                            <a href="/user/roomdetails/{{ roomdata.id }}"><h3>Question: {{ roomdata.question }}?</h3></a>
+                                <small>When You Asked: {{ roomdata.created }}</small><br/><br/>
+                                {% comment %} {% else %}
+                                    <p>No Rooms Created By {{userData.username }}</p>
+                                {%endif%} {% endcomment %}
+                            {% endif %}
+                        {% endfor %}
+                </div>
+            </div>
+            <div class='biosection biosectionlater'>
+                <div class='biosection1'>
+                    <h2>{{ userData.username }}'s Contact Info</h2>
+                    <p>My Email Address: {{ userData.email }}</p>
+                    <p>My Phone Number: {{ userData.phone }}</p>
+                    <p>My Birthday: {{ userData.dateofbirth }}</p>
+                </div>
+                <div class='biosection2'>
+                    <h2>My Social Info</h2>
+                    <p>My GitHub: <a href="{{userData.github}}"> {{ userData.github }}</a></p>
+                    <p>My LinkedIn: <a href="{{ userData.linkedIn }}"> {{ userData.linkedIn }}</a></p>
+                    <p>My Twitter: <a href="{{ userData.twitter }}">{{ userData.twitter }}</a></p>
+                    <p> My Facebook: <a href="{{ userData.facebook }}"> {{ userData.facebook }}</a></p>
+                    <p> My Instagram: <a href="{{ userData.instagram }}">{{ userData.instagram }}</a></p>
+                     <p>My PortFolio: <a href="{{ userData.portfoliowebsite }}">{{ userData.portfoliowebsite }}</a></p>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
+{%endblock content%}

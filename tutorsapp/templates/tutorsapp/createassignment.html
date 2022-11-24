@@ -1,0 +1,53 @@
+{% extends 'generalsection.html' %}
+{% block content %}
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Create An Assignement | LMS Dashboard</title>
+		<link rel="stylesheet" href="{% static 'styles/createallassignments.css' %}" />
+	</head>
+	<body>
+        <main>
+            <div class="mainsection">
+                <a href="{% url 'AllAssignments' %}"><h1>Create An Assignement</h1></a>
+                <small>[Kinldy Fill The Form Below To Create An Assignment]</small>
+                <div id="flash">
+                    {% if messages %} {% for message in messages %}
+                    <div class="alert alert-{{ message.tags}} m-0" role="alert">
+                      <strong style = "color : red;">{{ message }}</strong>
+                    </div>
+                    {% endfor %} {% endif %}
+                  </div>
+                <form action="" method="POST" >
+                    {% csrf_token %}
+                    <input name="title" type="text" placeholder="Enter Assignment Title" /><br/>
+                    {% comment %} <input name="track" type="text" placeholder="Track" /> {% endcomment %}
+                    <select name="track" >
+                        <option value = "">Select A Track</option>
+                        <option value = "Digital Marketers">Digital Marketers</option>
+                        <option value = "Full Stack Web Developers">Full Stack Web Developers</option>
+                        <option  value = "Embedded Systems Engineers">Embedded Systems Engineers</option>
+                        <option  value = "Product/Graphics Designers">Product/Graphics Designers</option>
+                        <option  value = "Data Scientists">Data Scientists</option>
+                    </select><br/>
+                    <input name="shortdescription" type="text" placeholder="Enter A Short Description" /><br/>
+                    <input id="detailbox" name="detaileddescription" type="text" placeholder="Enter A More Detailed Description" /><br/>
+                    <input id="detailbox" name="resources" type="text" placeholder="Enter Resources For Reseach [If Any]" /><br/>
+                    <input name="modeofsubmission" type="text" placeholder="Mode Of Submission? [Url or Text]" /><br/>
+                    <input name="task_point" type="number" placeholder="How Many Points Are Allocated To This Assignment?" /><br/>
+                    <input name="dataofsubmission" type="date" placeholder="Enter A Required Date For Submission" /><br/>
+                    <button type="submit">Create Assignment</button>
+                </form>              
+            </div>
+
+        </main>
+    </body>
+</html>
+
+
+{% endblock content %}

@@ -1,0 +1,42 @@
+<!-- @format -->
+{% extends 'general.html' %} 
+{% load static %}
+{% block content %} 
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Quiz Page | IGHUB LMS PLATFORM</title>
+		<link rel="stylesheet" href="{% static 'styles/quiz.css' %}" />
+	</head>
+	<body>
+		<main>
+			<div class="welcomequizoutter">
+				<div class="welcomequiz">
+					<p> Hi {{ user.username }}, welcome to the quiz section,</p>
+					<small>[Kindly click on each quiz to see its details]</small><br/>
+				</div>
+			</div>
+			{% for data in quizes %}
+			<div class="quizproper">
+				<a ><h2>@{{ data.user }}</a> Asked:</h2>
+				<a href="/user/quizdetails/{{ data.id }}/">
+					<h3>"{{ data.quiz}}?"</h3>
+				</a>
+				<h4>Note: {{ data.notes }}</h4>
+				<h4>Tip: {{ data.prize }}</h4>
+				<small>Created {{ data.created_at | timesince }} ago</small><br/>
+				{% if request.user == data.user %}
+				{% comment %} <a href="/user/delete/{{ data.id }}/"><button>Delete This Room</button></a> {% endcomment %}
+				{% endif %}
+			</div>
+			<br />
+			<br />
+			<br />
+			{% endfor %}
+		</main>
+	</body>
+</html>
+{% endblock %}

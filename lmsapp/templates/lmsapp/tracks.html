@@ -1,0 +1,106 @@
+<!-- @format -->
+{% extends 'general.html' %} {% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Tracks List | IGHub LMS</title>
+		<link rel="stylesheet" href="{% static 'styles/usertrackpage.css' %}" />
+	</head>
+	<body>
+		<div class="tablesection">
+			<div class='searchtrack'>
+				<div>
+					<a href={% url 'Track' %}><h1>All Tracks</h1></a>
+				</div>
+				<div>
+					<form action="" method="GET">
+						<input type='search' name = 'query' placeholder='Search...' />
+					</form>
+				</div>
+			</div>
+			<div class="tablesectioninner">
+				{% comment %} <div> {% endcomment %}
+				<table>
+					<tr>
+						<th>Username</th>
+						<th>Track</th>
+						<th>LinkedIn</th>
+						<th>GitHub Account</th>
+						<th>Twitter Account</th>
+					</tr>
+					{% for trackresult in trackresult %}
+					<tr>
+						<a href="/user/profile/{{trackresult.username}}/"><td class="usernamesec">
+							{% if trackresult.profilepicture %} <br />
+							<div><img src="{{ trackresult.profilepicture.url }}" /></div>
+							{% else %} <img src = {% static 'images/general/user.png'%}/> </br/>
+							{% endif %}
+							<a href="/user/profile/{{trackresult.username}}/"><p>@{{ trackresult.firstname }}</p></a>
+						</td></a>
+						<td >
+							{{trackresult.track}}
+						</td>
+						<td >
+							<a href="{{trackresult.linkedIn}}">
+								<img src={% static 'images/dashboard/linkedIn.png %} title="See LinkedIn Account">
+							</a>
+						</td>
+						<td >
+							<a href="{{trackresult.github}}">
+								<img style="width:50px;" src={% static 'images/dashboard/github.png' %} title="See GitHub Account" >
+							</a>
+						</td>
+						<td >
+							<a href="{{trackresult.twitter}}">
+								<img src={% static 'images/dashboard/twitter.png' %} title="See Twitter Account">
+							</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+				
+				{% comment %} <table>
+					<tr>
+						<th>Username</th>
+						<th>Track</th>
+						<th>Birthday</th>
+						<th>GitHub Account</th>
+						<th>Twitter Account</th>
+					</tr>
+					{% for data in fellows %}
+					<tr>
+						<td class="usernamesec">
+							{% if data.profilepicture %} <br />
+							<div><img src="{{ data.profilepicture.url }}" /></div>
+							{% else %} <img src = {% static 'images/general/user.png'%}/> </br/>
+							{% endif %}
+							<a href=""><p>@{{data.username}}</p></a>
+						</td>
+						<td>{{data.track}}</td>
+						<td>
+							<a href="{{trackresult.linkedIn}}">
+								<img src={% static 'images/dashboard/twitter.png' %} title="See LinkedIn Account">
+							</a>
+						</td>
+						<td>
+							<a href="{{data.github}}">
+								<img style="width:50px;" src={% static 'images/dashboard/github.png' %} title="See GitHub Account" >
+							</a>
+						</td>
+						<td>
+							<a href="{{data.twitter}}">
+								<img src={% static 'images/dashboard/twitter.png' %} title="See Twitter Account">
+							</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</table> {% endcomment %}
+			</div>
+		</div>
+		
+		{% endblock content %}
+	</body>
+</html>

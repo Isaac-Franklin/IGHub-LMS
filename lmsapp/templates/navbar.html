@@ -1,0 +1,146 @@
+<!-- @format -->
+{% load static %} {% block content %}
+	<!-- START OF NAVIGATION AND SIDE BAR SECTION -->
+	<!-- NAVIGATION BAR -->
+	<nav>
+		<div class="navimages">
+			<div class="navimagessect1">
+				<img id="navbarbtn2" src={% static 'images/general/closemenu1.png' %} />
+				<div class="navlogo1">
+					<img id="navbarbtn" src={% static 'images/general/navs.png' %} />
+				</div>
+				<div class="navlogo2">
+					<img src={% static 'images/general/IGhubLogo.png' %} />
+				</div>
+			</div>
+
+			<div class="navimagesright">
+				<div class="navfilesimage navrightimage">
+					<img src={% static 'images/general/setting.png' %} />
+				</div>
+				<div class="navnotificationimages navrightimage">
+					<img src={% static 'images/general/notifications.png' %} />
+				</div>
+				<a href='/user/profile/{{data.username}}/'>
+					<div class="navprofilemages navrightimage">
+						{% if data.profilepicture %} <br />
+						<div> <img src="{{ data.profilepicture.url }}" /> </div>
+						{% else %}
+						<img src = {% static 'images/general/user.png'%}/>
+						{% endif %} 
+					</div>
+				</a>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="allSideBar">
+		<!-- SIDE BAR ONE [BIG SIDE BAR] -->
+		<div class="sidebar">
+			{% comment %} <div class="todayDate"></div> {% endcomment %}
+			<div class="sideBarProfile enlargeEffect">
+				<div class="profilepicsidebar">
+					{% comment %} <img src="{{ data.profilepicture.url }}" /> {% endcomment %}
+					{% if data.profilepicture %} <br />
+					{% comment %} <img src = {% static 'images/general/userprofilepic.png'%}/> {% endcomment %}
+					<div> <img src="{{ data.profilepicture.url }}" /> </div>
+					{% else %}
+					<img src = {% static 'images/general/user.png'%}/>
+					{% endif %} 
+				</div>
+				<div>
+					{% if user.is_authenticated %}
+					<h4 class="sideBar1Text">{{user.username}}</h4>
+					<p class="sideBar1Text">{{ data.track }}</p>
+					{% endif %}
+				</div>
+			</div>
+
+			<div class="menuList1">
+				<a href="{% url 'dashboard' %}"><div class="sidebarMenuItem">
+					<img src={% static 'images/general/dashboard.png' %} />
+					<p class="sideBar1Text">Dashboard</p>
+				</div></a>
+				<a href = {% url 'Track' %}><div class="sidebarMenuItem ">
+					<img src={% static 'images/general/classes.png' %} />
+					<p class="sideBar1Text">Track</p>
+				</div></a>
+				<a href="{% url 'Tutorial' %}"><div class="sidebarMenuItem">
+					<img src={% static 'images/general/plays.png' %} />
+					<p class="sideBar1Text">Trainings/Tutorials</p>
+				</div></a>
+				</div>
+				<a href = "{% url 'Room' %}"><div class="sidebarMenuItem">
+					<img src={% static 'images/general/tutorial.png' %} />
+					<p class="sideBar1Text">Rooms</p>
+				</div></a>
+				{% comment %} <a href="{% url 'Assignment' %}"><div class="sidebarMenuItem">
+					<img src={% static 'images/general/assignments.png' %} />
+					<p class="sideBar1Text">Assignments</p>
+				</div></a> {% endcomment %}
+				<div class="sidebarMenuItem">
+					<img src={% static 'images/general/teachers.png' %} />
+					<p class="sideBar1Text">Tutors</p>
+				</div>
+				<a href="{% url 'Report' %}"><div class="sidebarMenuItem">
+					<img src={% static 'images/general/reports.png' %} />
+					<p class="sideBar1Text">Report</p>
+				</div></a>
+				<a href="{% url 'logout' %}"><div class="sidebarMenuItem logoutbtnmain">
+					<img src={% static 'images/general/logouts.png' %} />
+					<p class="sideBar1Text">Logout</p>
+				</div></a>
+				
+				{% comment %} <div class="todayDate"></div> {% endcomment %}
+			</div>
+		</div>
+		<!-- SIDE BAR TWO[ SMALL MINIMALIZED SIDE BAR] -->
+		<div class="sidebar2">
+			{% comment %} <div class="todayDate"></div> {% endcomment %}
+			<div class="sideBarProfile">
+				<div>
+					{% comment %} <img src="{{ data.profilepicture.url }}" /> {% endcomment %}
+					{% if data.profilepicture %} <br />
+					{% comment %} <img src = {% static 'images/general/userprofilepic.png'%}/> {% endcomment %}
+					<div> <img src="{{ data.profilepicture.url }}" /> </div>
+					{% else %}
+					<img src = {% static 'images/general/user.png'%}/>
+					{% endif %} 
+				</div>
+			</div>
+
+			<div class="menuList">
+				<div class="sidebarMenuItem" title='Dashboard'>
+					<img src={% static 'images/general/dashboard.png' %} alt="dashboard" />
+				</div>
+				<div class="sidebarMenuItem" title='class' >
+					<img src ={% static 'images/general/classes.png' %} />
+				</div>
+				<div class="sidebarMenuItem" title='Room' >
+					<img src={% static 'images/general/plays.png' %} />
+				</div>
+				<div class="sidebarMenuItem" title='Tutorials'>
+					<img src= {% static 'images/general/tutorial.png' %} />
+				</div>
+				{% comment %} <div class="sidebarMenuItem" title='Assignments' >
+					<img src= {% static 'images/general/assignments.png' %} />
+				</div> {% endcomment %}
+				<div  id ='specA' class="sidebarMenuItem" title='Tutors' >
+					<img src={% static 'images/general/teachers.png' %} />
+				</div>
+				<div class="sidebarMenuItem" title='Report' >
+					<img src={% static 'images/general/reports.png' %} />
+				</div>
+				<div class="sidebarMenuItem logoutbtn" title='Logout' >
+					<img src= {% static 'images/general/logouts.png' %} />
+				</div>
+			</div>
+		</div>
+		<!-- MAIN BODY SECTION -->
+		<!-- START OF NAVIGATION AND SIDE BAR SECTION -->
+	</div>
+
+    <script src={% static 'js/general.js' %}></script>
+
+{% endblock %}

@@ -1,0 +1,160 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    /* width: 95%; */
+    /* margin-left: 4%; */
+    /* padding: 10px; */
+    height: 100%;
+    overflow: hidden;
+    padding-bottom: 100px;
+    z-index: 1;
+
+}
+
+.topcover {
+    background-image: url("/static/images/profile/ighubimage2.jpg");
+    height: 250px;
+    width: 85%;
+    margin-left: 15%;
+    margin-top: 4%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-position: top;
+    background-position: center;
+    background-color: grey;
+    background-blend-mode: multiply;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.profilepicture img {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: -100px;
+    border-radius: 100px;
+    left: 10px;
+    background-color: white;
+}
+
+.profiledetails {
+    width: 69%;
+    margin-left: 30%;
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #3D4296;
+    color: white;
+    /* background-color: #F58731; */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.biosection {
+    width: 83%;
+    margin-left: 16%;
+    background-color: #F58731;
+    padding: 10px;
+    /* margin-left: 4%; */
+    margin-top: 40px;
+    border-radius: 10px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+.biosection1 {
+    width: 48%;
+    background-color: #3D4296;
+    padding: 10px;
+    /* margin-left: 4%; */
+    /* margin-top: 20px; */
+    border-radius: 10px;
+}
+
+
+.biosection2 a {
+    color: white;
+}
+
+.biosection2 {
+    width: 48%;
+    background-color: #3D4296;
+    padding: 10px;
+    /* margin-left: 4%; */
+    /* margin-top: 20px; */
+    border-radius: 10px;
+}
+
+.biosection1 p,
+h2,
+.biosection2 p,
+h2 {
+    margin-bottom: 5px;
+}
+
+
+/* START OF MEDIA QUERY FOR RESPONSIVENESS */
+@media only screen and (max-width: 950px) {
+    .profilepicture img {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        bottom: -70px;
+        border-radius: 100px;
+        left: 30%;
+
+    }
+
+    .profiledetails {
+        width: 80%;
+        margin-left: 15%;
+        margin-top: 20%;
+    }
+
+    .topcover {
+        height: 250px;
+        width: 95%;
+        margin-left: 5%;
+        margin-top: 90px;
+
+    }
+
+    .biosection {
+        width: 80%;
+        margin-left: 15%;
+        background-color: #F58731;
+        padding: 10px;
+        /* margin-left: 4%; */
+        margin-top: 20px;
+        border-radius: 10px;
+        display: flex;
+        /* align-items: center; */
+        justify-content: space-between;
+    }
+
+    .biosectionlater {
+        display: inline;
+        text-align: center;
+        width: 80%;
+        margin: auto;
+    }
+
+    .biosection2,
+    .biosection1 {
+        width: 48%;
+        background-color: #3D4296;
+        padding: 10px;
+        margin: auto;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+
+
+}

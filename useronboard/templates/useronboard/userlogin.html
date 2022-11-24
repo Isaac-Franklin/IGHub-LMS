@@ -1,0 +1,43 @@
+<!-- @format -->
+{% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/x-icon" href={% static 'images/general/IGhubLogo2.png' %}>
+		<link rel="stylesheet" href={% static 'styles/logincss.css' %} />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Log In | IGHUB LMS</title>
+	</head>
+	<body>
+		<div class="loginintro">
+			<div><img src={% static 'images/general/IGhubLogo.png' %}></div>
+			<div><p>Welcome Back</p></div>
+		</div>
+		<div id="flash">
+			{% if messages %} {% for message in messages %}
+			<div class="alert alert-{{ message.tags}} m-0" role="alert">
+				<strong style="color: red">{{ message }}</strong>
+			</div>
+			{% endfor %} {% endif %}
+		</div>
+		<div class="formDiv">
+			<div><img src={% static 'images/loginpics/loginpageimg.png' %}></div>
+			<div>
+				<form method="POST" action="">
+					{% csrf_token %}
+					<label> Enter User Name</label><br />
+					<input type="text" name="username" placeholder="John Doe" />
+					<br /><br />
+					<label> Enter Password</label><br />
+					<input type="password" name="password" placeholder="***" />
+					<br /><br />
+					<button type="submit" class="submit" name="submit">Hop In!</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
+
+{% endblock content %}
