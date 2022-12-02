@@ -44,15 +44,15 @@ def Userreg(request):
             return redirect('userreg')
         else:
             messages.success(request, 'Registration Successful')
-            user = user_reg(firstname=firstname, lastname=lastname, username=fullname, email=email,
+            form = user_reg(firstname=firstname, lastname=lastname, username=fullname, email=email,
                             track=track, phone=phonenumber, dateofbirth=dateofbirth, password=password, repassword=rtpassword, github=GitHub, linkedIn=LinkedIn,
                             twitter=Twitter, facebook=Facebook, instagram=Instagram, portfoliowebsite=PortFolio_Website, profilepicture=Profilepicture)
 
             user = User.objects.create_user(
                 username=fullname, email=email, password=password, first_name=firstname, last_name=lastname)
+            form.save()
             login(request, user)
             user.save()
-            # form.save()
             return redirect('userlogin')
             messages.success(request, 'Registration Successful')
     return render(request, 'useronboard/fullsignup.html')

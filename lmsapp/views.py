@@ -17,7 +17,7 @@ def VideoUpload(request):
 
 @login_required
 def Dashboard(request):
-    userData = user_reg.objects.all()
+    userData = user_reg.objects.all().order_by('-created_at')
     quizes = Quiz.objects.all().first()
     video = Video_upload.objects.all()
     assign = Assignment.objects.all()
@@ -146,10 +146,8 @@ def logoutUser(request):
 
 
 def NavBar(request):
-    # if request.user.is_authenticated:
-    # if request.user.is_authenticated:
-    data = user_reg.objects.all()
-    # data = user_reg.objects.filter(username=request.user.username).first()
+    if request.user.is_authenticated:
+        data = user_reg.objects.get(username=request.user.username).first()
     context = {'data': data}
     return render(request, 'general.html', context)
 

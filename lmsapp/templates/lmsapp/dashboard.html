@@ -83,7 +83,7 @@
 					<h2>Users</h2>
 					{% for userData in userData %}
 						<div class='usersdisplayinner'>
-							{% if userData.profilepicture %} <br />
+							{% if userData.profilepicture.url %} <br />
 							{% comment %} <img src = {% static 'images/general/userprofilepic.png'%}/> {% endcomment %}
 							<div> <img src="{{ userData.profilepicture.url }}" /> </div>
 							{% else %}

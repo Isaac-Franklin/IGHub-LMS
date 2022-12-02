@@ -42,7 +42,7 @@
 			<div class="sideBarProfile enlargeEffect">
 				<div class="profilepicsidebar">
 					{% comment %} <img src="{{ data.profilepicture.url }}" /> {% endcomment %}
-					{% if data.profilepicture %} <br />
+					{% if data.profilepicture.url %} <br />
 					{% comment %} <img src = {% static 'images/general/userprofilepic.png'%}/> {% endcomment %}
 					<div> <img src="{{ data.profilepicture.url }}" /> </div>
 					{% else %}
