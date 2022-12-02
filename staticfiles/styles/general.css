@@ -1,0 +1,359 @@
+/* START OF NAVGATION AND SIDE BAR EDITS FROM BELOW */
+
+
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+.try {
+    height: 1000vh;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: montserrat, Roboto, tahoma;
+}
+
+nav {
+    width: 100%;
+    padding: 10px 50px;
+    margin: auto;
+    box-shadow: 0px 0px 10px #888888;
+    position: fixed;
+    background-color: white;
+    z-index: 30;
+    position: fixed;
+    top: 0px;
+}
+
+.navimages {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    z-index: 20;
+
+}
+
+.navimagessect1 {
+    align-items: center;
+    display: flex;
+}
+
+.navlogo2 img {
+    margin-top: 10px;
+    width: 100px;
+    position: relative;
+    left: -14px;
+    transition: ease-in-out;
+}
+
+
+#navbarbtn2 {
+    width: 30px;
+    position: relative;
+    margin-right: 20px;
+    left: -10px;
+    display: none;
+    margin-bottom: 5px;
+    transition: ease-in-out;
+    cursor: pointer;
+}
+
+#navbarbtn {
+    width: 40px;
+
+}
+
+.navlogo1 img {
+    margin-top: 10px;
+    width: 35px;
+    margin-right: 20px;
+    position: relative;
+    left: -10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+.navimagesright {
+    display: flex;
+    align-items: center;
+    background-color: #3D4296;
+    padding: 6px;
+    border-radius: 10px;
+    width: 170px;
+    height: 60px;
+}
+
+.navrightimage img:hover {
+    background-color: #F58731;
+    border-radius: 10px;
+
+}
+
+.navfilesimage img {
+    width: 35px;
+    margin-right: 20px;
+    padding: 5px;
+    /* border-radius: 20px; */
+    /* border: solid 1px black; */
+    cursor: pointer;
+}
+
+.navnotificationimages img {
+    width: 34px;
+    margin-right: 20px;
+    padding: 5px;
+    /* border-radius: 20px; */
+    /* border: solid 1px black; */
+    cursor: pointer;
+}
+
+.navprofilemages img {
+    width: 39px;
+    margin-bottom: 15px;
+    /* padding: 5px; */
+    border-radius: 20px;
+
+    /* border: solid 1px black; */
+    cursor: pointer;
+}
+
+.allSideBar {
+    z-index: 10;
+
+
+}
+
+.sidebar {
+    margin-top: 75px;
+    width: 230px;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: rgb(38, 41, 102);
+    padding: 20px 0px;
+    box-shadow: 0px 0px 10px #888888;
+    display: none;
+    animation: slide;
+    animation-duration: 0.5s;
+    transition: 1s ease-in-out;
+    z-index: 10;
+}
+
+/* .menuList1 a .sidebarMenuItem p{
+    text-decoration: none;
+    font-size: 3rem;
+} */
+
+@keyframes slide {
+    from {
+        width: 50px;
+    }
+
+    to {
+        width: 230px;
+    }
+}
+
+/* .menuList1{
+    height: 10%;
+    background-color: red;
+    width: 300px;
+} */
+
+.sideBar1Text {
+    animation: reveal;
+    animation-duration: 1s;
+    transition: ease-in-out;
+    font-size: 0.9rem;
+    /* display: none; */
+}
+
+@keyframes reveal {
+    0% {
+        display: none;
+        font-size: 0rem;
+    }
+
+    25% {
+        display: none;
+        font-size: 0rem;
+    }
+
+    50% {
+        display: none;
+        font-size: 0rem;
+    }
+
+    100% {
+        display: block;
+        font-size: 0.9rem;
+    }
+
+    0% {
+        display: none;
+        font-size: 0rem;
+    }
+}
+
+
+.sidebar2 {
+    margin-top: 75px;
+    width: 50px;
+    overflow: hidden;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: rgb(38, 41, 102);
+    padding: 20px 0px;
+    box-shadow: 0px 0px 10px #888888;
+    animation: slide2;
+    animation-duration: 0.5s;
+    transition: 1s ease-in-out;
+    z-index: 10;
+
+}
+
+@keyframes slide2 {
+    from {
+        width: 250px;
+    }
+
+    to {
+        width: 50px;
+    }
+}
+
+
+
+.sidebar2 .todayDate {
+    height: 40px;
+}
+
+.todayDate {
+    padding: 10px 10px 10px 0px;
+    margin-left: 0px;
+    background-color: white;
+    text-align: center;
+    font-size: 1.1rem;
+    animation: revealTime;
+    animation-duration: 3s;
+    transition: ease-in-out;
+    height: 40px;
+    width: 230px;
+}
+
+@keyframes revealTime {
+    0% {
+        display: none;
+        margin-left: -800px;
+    }
+
+    100% {
+        display: none;
+        margin-left: 0px;
+    }
+}
+
+.sideBarProfile {
+    padding: 10px 5px;
+    display: flex;
+    align-items: center;
+    /* text-align: center; */
+    /* margin-bottom:10px; */
+}
+
+
+
+.sideBarProfile img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.profilepicsidebar img {
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+
+.enlargeEffect {
+    background-color: #F58731;
+    height: 60px;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+
+.sideBarProfile h4,
+p {
+    color: white;
+}
+
+
+.sidebarMenuItem img {
+    width: 17px;
+    height: 17px;
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.sidebarMenuItem p {
+    padding-bottom: 20px;
+    height: 10px;
+}
+
+.sidebarMenuItem {
+    /* height: 100vh; */
+    display: flex;
+    padding: 10px 10px;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 200px;
+    /* align-items: center; */
+    transition: 0.7s ease-in-out;
+}
+
+.sidebarMenuItem:hover {
+    background-color: rgb(245, 135, 49);
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+/* .logoutbtn{
+    margin-top: 30px;
+}
+
+.logoutbtnmain{
+    margin-top: 50px;
+} */
+
+/* .logoutbtnsecdate{
+    position: absolute;
+    bottom: 20px;
+} */
+/* END OF NAVGATIONAND SIDE BAR EDITS FROM BELOW */
+.generalsect {
+    padding-top: 200px;
+    font-size: 5rem;
+    position: relative;
+    top: 30px;
+    color: black;
+
+}
+
+
+footer {
+    background-color: white;
+    height: 100%;
+    width: 100vw;
+    padding: 10px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -17,7 +17,7 @@ from django.contrib.auth import login, logout, authenticate
 
 def Userreg(request):
     if request.method == 'POST':
-        form = user_reg(request.POST, request.FILES)
+        # form = user_reg(request.POST, request.FILES)
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
         fullname = request.POST['username']
@@ -52,8 +52,8 @@ def Userreg(request):
                 username=fullname, email=email, password=password, first_name=firstname, last_name=lastname)
             login(request, user)
             user.save()
-            form.save()
-            return redirect('userreg')
+            # form.save()
+            return redirect('userlogin')
             messages.success(request, 'Registration Successful')
     return render(request, 'useronboard/fullsignup.html')
 

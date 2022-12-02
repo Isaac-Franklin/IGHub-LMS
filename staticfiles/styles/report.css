@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: roboto, tahoma;
+}
+
+main {
+    /* width: 95%; */
+    width: 400px;
+    box-shadow: 0px 0px 10px #888888;
+    margin-left: 4%;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 100px;
+    /* text-align: center; */
+    margin: auto;
+    margin-top: 8%;
+
+}
+
+textarea {
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    /* border-radius:20px; */
+    border: 1px solid grey;
+}
+
+
+main input {
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    /* border-radius:20px; */
+    border: 1px solid grey;
+}
+
+
+
+main button {
+    padding: 10px;
+    font-size: 1rem;
+    height: 50px;
+    text-decoration: none;
+    background-color: #F58731;
+    border: 0px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+
+@media only screen and (max-width: 950px) {
+    main input {
+        height: 50px;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        border: 1px solid grey
+    }
+
+    main {
+        width: 90%;
+        margin-left: 10%;
+        margin-top: 30%;
+        overflow: scroll;
+
+    }
+}

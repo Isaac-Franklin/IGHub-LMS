@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-yfqp)wb@+*=#es-0q+tk6ia)_dfb-ifd5ydrut6h%#x1&$k6f^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -138,6 +138,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR / 'static')
 ]
 
+STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/profileimages/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/profileimages')

@@ -1,0 +1,658 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: roboto, tahoma;
+}
+
+.mainsection {
+    width: 100%;
+}
+
+
+
+
+.videoinner {
+    display: flex;
+    overflow-x: scroll;
+}
+
+button {
+    padding: 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: #F58731;
+    border: 0px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
+
+.video {
+    width: 50vw;
+    overflow: hidden;
+    background-color: #fdfdfd;
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    height: 405px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+.video h1 {
+    font-size: 1.8rem;
+}
+
+.view {
+    text-align: right;
+    margin-top: 20px;
+    color: rgba(245, 135, 50, 1);
+
+}
+
+
+.videofileinner {
+    margin-right: 10px;
+    border-radius: 20px;
+
+}
+
+
+.mtn {
+    color: rgba(37, 173, 229, 1);
+    background-color: white;
+    padding: 8px;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+
+.instruct-top {
+    display: flex;
+    align-items: center;
+    background-color: rgba(37, 173, 229, 1);
+    padding: 0px 10px;
+    gap: 20px;
+    position: fixed;
+    width: 15%;
+    height: 150px;
+    z-index: 2;
+    color: white;
+}
+
+.instruct-top h1 {
+    font-size: 1.5rem;
+}
+
+
+
+.instruct-bottom {
+    background-color: rgb(61, 66, 150);
+    height: 100vh;
+    position: fixed;
+    width: 15%;
+}
+
+.instructor {
+    width: 15%;
+}
+
+
+.sidemenu {
+    padding-top: 200px;
+}
+
+.icons img {
+    width: 18px;
+    display: flex;
+    gap: 20px;
+    margin: 30px;
+}
+
+.p p {
+    line-height: 31px;
+}
+
+.logout {
+    display: flex;
+    /* gap: 25px; */
+    align-items: center;
+    color: #fff;
+    margin-left: 20px;
+    margin-top: 50px;
+    padding: 10px;
+    width: 150px;
+}
+
+.logout img {
+    margin-right: 10px;
+}
+
+.dd {
+    color: #fff;
+    width: 150px;
+    /* background-color: red; */
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dd img {
+    margin-right: 10px;
+    width: 20px;
+}
+
+.dd:hover,
+.logout:hover {
+    background-color: rgba(245, 135, 50, 1);
+    /* padding: 40px; */
+    border-radius: 10px;
+
+}
+
+.header {
+    display: flex;
+    box-shadow: 0px 0px 10px #888888;
+}
+
+.body {
+    /* width: 70%; */
+    margin-left: 15%;
+}
+
+.logo img {
+    width: 90px;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 30px;
+    align-items: center;
+}
+
+.notified i {
+    color: #fff;
+    display: inline-block;
+    gap: 20px;
+    margin: 5px;
+    /* width: 0px; */
+}
+
+.notified {
+    background-color: rgba(37, 173, 229, 1);
+    padding: 8px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #888888;
+
+}
+
+.nav {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #888888;
+    width: 85%;
+    margin-left: 15%;
+    height: 10%;
+    align-items: center;
+    position: fixed;
+}
+
+
+.pind1,
+.pind {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    background-color: #fdfdfd;
+    width: 250px;
+    color: rgba(125, 128, 185, 1);
+    padding: 10px;
+    text-align: center;
+    border-radius: 13.36586px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.12);
+}
+
+.studentdata {
+    display: flex;
+    justify-content: space-between;
+    /* width:  800px; */
+}
+
+.body-content {
+
+    padding: 100px 0px 20px 20px;
+}
+
+.body-item {
+    padding: 0px 20px;
+
+}
+
+
+.hr {
+    width: 100%;
+}
+
+
+.student p {
+    font-size: 25px;
+    text-align: center;
+    padding-top: 30px;
+    color: rgba(37, 173, 229, 1);
+
+}
+
+.quizintro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.student {
+    width: 100%;
+    padding: 20px;
+    background: #fdfdfd;
+    height: 530px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+body a {
+    text-decoration: none;
+}
+
+.disstop {
+    display: flex;
+    justify-content: space-between;
+}
+
+.discuss {
+    width: 100%;
+    background: #fdfdfd;
+    /* height: 0%; */
+    /* background-color: red; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+
+.date {
+    color: rgba(125, 128, 185, 1);
+
+}
+
+.arrow {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    color: rgba(245, 135, 50, 1);
+
+    align-items: center;
+}
+
+.discuss-head {
+    /* margin: 20px; */
+    /* color: rgba(125, 128, 185, 1); */
+
+}
+
+/* .discuss-head p {
+    font-size: 25px;
+    font-weight: bold;
+} */
+
+.body-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.quizsubmit {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 20px;
+    height: 400px;
+    /* height: 100%; */
+    border-radius: 20px;
+    overflow-y: scroll;
+    box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+
+.comments {
+    height: 100%;
+}
+
+.quizinner {
+    margin-top: 20px;
+
+}
+
+.navcontrol img {
+    width: 40px;
+}
+
+.navcontrol {
+    display: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.navcontro2 img {
+    width: 40px;
+}
+
+.navcontro2 {
+    /* position: absolute; */
+    right: 30px;
+    display: none;
+    margin-left: 0px;
+}
+
+.studentout {
+    /* background-color: red; */
+    width: 80%;
+}
+
+.discussandquiz {
+    display: grid;
+    grid-template-columns: 46% 46%;
+    justify-content: space-around
+}
+
+.assignsubmit {
+    border-radius: 20px;
+    margin: 20px auto;
+    width: 95%;
+    padding: 20px;
+    /* height: 300px; */
+    background-color: white;
+    box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+
+table {
+    width: 100%;
+    /* background-color: red; */
+    justify-content: space-around;
+    /* height: 300px; */
+}
+
+
+td {
+    padding: 20px;
+    width: 10px;
+    margin-right: 20px;
+    /* background-color: red; */
+    text-align: left;
+    /* cursor: pointer; */
+}
+
+tr:hover {
+    background-color: #D6EEEE;
+}
+
+
+footer {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    padding: 10px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* media query starts here ........... */
+@media only screen and (max-width: 865px) {
+    .navcontrol {
+        display: block;
+    }
+
+    .discuss {
+        height: 420px;
+
+    }
+
+    .instopdashboard {
+        display: none;
+    }
+
+    .body {
+        /* width: 70%; */
+        margin-left: 0%;
+        padding-top: 10px;
+    }
+
+    .body-content {
+        padding: 110px 0px 20px 20px;
+    }
+
+    .studentdata {
+        display: inline;
+        justify-content: space-around;
+        /* width:  800px; */
+    }
+
+    .pind1,
+    .pind {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        background-color: #fdfdfd;
+        width: 90vw;
+        margin-bottom: 20px;
+        color: rgba(125, 128, 185, 1);
+        padding: 10px;
+        text-align: center;
+        border-radius: 13.36586px;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .pind1 p,
+    .pind p {
+        margin-left: 20px;
+    }
+
+    .sidemenu {
+        padding-top: 100px;
+    }
+
+    .mtn {
+        color: rgba(37, 173, 229, 1);
+        background-color: white;
+        padding: 8px;
+        align-items: center;
+        border-radius: 10px;
+        /* display: none; */
+
+    }
+
+    .instruct-top {
+        /* display: none; */
+        padding: 20px;
+
+    }
+
+    .nav {
+        background-color: #fff;
+        box-shadow: 0px 0px 10px #888888;
+        width: 85%;
+        margin-left: 15%;
+        height: 10%;
+        padding-top: 10px;
+        align-items: center;
+        position: fixed;
+    }
+
+    .instruct-bottom {
+        background-color: rgb(61, 66, 150);
+        height: 100vh;
+        position: fixed;
+        width: 55%;
+        z-index: 20;
+        /* position: absolute; */
+        left: 1px;
+        display: none;
+        transition: 1s ease-in-out;
+    }
+
+    .slidein {
+        display: block;
+        animation-name: slide;
+        animation-duration: 1s;
+    }
+
+    @keyframes slide {
+        from {
+            opacity: 0;
+            left: -500px;
+        }
+
+        to {
+            opacity: 1;
+            left: 2px
+        }
+    }
+
+    .slideback {
+        animation-name: hidebar;
+        animation-duration: 1s;
+    }
+
+    @keyframes hidebar {
+        from {
+            opacity: 1;
+            left: 2px;
+        }
+
+        to {
+            opacity: 0;
+            left: -300px;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 817px) {
+    .body-item {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
+    }
+
+    .pp {
+
+        font-size: 20px;
+        line-height: 0px;
+    }
+
+    .instruct-top {
+        height: 10%;
+    }
+
+    .instruct-top i {
+        display: none;
+    }
+
+    /* .icons div {
+    flex-wrap: nowrap;
+} */
+
+}
+
+@media only screen and (max-width: 631px) {
+    .icons div {
+        flex-wrap: wrap;
+    }
+
+    .dd:hover {
+        background-color: rgba(245, 135, 50, 1);
+        /* padding: 0px 20px; */
+        border-radius: 10px;
+
+    }
+
+    .instruct-top {
+        display: block;
+        padding: 20px;
+
+    }
+
+    .pp {
+        padding: 20px 0px;
+    }
+
+    .discuss {
+        width: 100%;
+        background: #fdfdfd;
+        height: 70%;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+    }
+
+    ul {
+
+        flex-wrap: nowrap;
+
+    }
+
+    .video {
+        width: 90vw;
+    }
+
+    .videoinner {
+        display: flex;
+        overflow-x: scroll;
+        width: 100%;
+    }
+
+    .notified {
+        background-color: rgba(37, 173, 229, 1);
+        padding: 4px 10px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #888888;
+
+    }
+
+
+
+    .discussandquiz {
+        display: grid;
+        grid-template-columns: 90%;
+        justify-content: space-around
+    }
+
+    .assignsubmit {
+        border-radius: 20px;
+        margin: 20px auto;
+        width: 90%;
+        padding: 20px;
+        overflow: scroll;
+        /* height: 300px; */
+        background-color: white;
+        box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+    }
+
+    .studentout {
+        /* background-color: red; */
+        width: 100%;
+        margin-bottom: 40px;
+        overflow: hidden;
+        background-color: transparent;
+    }
+}
